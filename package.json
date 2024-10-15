@@ -1,0 +1,37 @@
+{
+  "name": "webkul-admin-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "18.17.1",
+    "npm": "9.8.1"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,tsx, --ignore-path .gitignore .",
+    "stylelint": "stylelint *.tsx,*jsx --config stylelint.config.js ./src",
+    "stylelint:fix": "stylelint *.tsx,*jsx --fix --config stylelint.config.js ./src",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.2.15"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "eslint-config-next": "14.2.15"
+  }
+}
