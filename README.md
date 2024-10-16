@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WEBKUL ADMIN FRONTEND
+webkul管理システム
 
-## Getting Started
+## Local Development
+```shell script
 
-First, run the development server:
+## 用意
+npm i
 
-```bash
+
+## 起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Recommended VSCode Settings
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To ensure consistent formatting and linting, install the following VSCode extensions:
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Make sure to enable formatting on save:
 
-## Learn More
+1. Open the VSCode command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac).
+2. Search for "Preferences: Open Settings (JSON)".
+3. Add the following settings:
+   ```json
+   {
+    "explorer.confirmDelete": false,
+    "git.replaceTagsWhenPull": true,
+    "editor.tabSize": 2,
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+       "source.fixAll.eslint": "explicit"
+    },
+    "eslint.validate": ["javascript", "typescript"],
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "typescript.updateImportsOnFileMove.enabled": "always"
+  }
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### icons
+This folder contains all the **SVG** icons used throughout the project. By centralizing icons into a dedicated folder, we ensure easy management, reuse, and scalability of icons across the application.
 
-## Deploy on Vercel
+Using **SVG (Scalable Vector Graphics)** for icons has several advantages:
+- **Scalability**: SVGs are vector-based, meaning they can scale to any size without losing quality, ensuring your icons look crisp on any screen resolution.
+- **Customizable**: SVGs allow for easy customization through CSS, including changing the color, size, and even animation.
+- **Performance**: SVGs are lightweight and do not require HTTP requests like images, improving page load times.
+---
+#### Molecules
+**Molecules** are components made by combining **Atoms** (simple UI elements like buttons, input fields, etc.). They form a meaningful block in the interface that can perform specific functions, but they are still relatively simple and reusable.
+Molecules provide the structure for larger components while maintaining a single responsibility. For example, a **FormInput** component that combines a label and an input field, or a **SearchBar** that has both an input field and a button.
+#### Examples of Molecules:
+- **FormInput**: A combination of a label and an input field.
+- **Card**: A small UI block that might contain an image, title, and description.
+- **SearchBar**: A text input and a search button combined to handle search functionality.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
+#### template
+**Templates** are high-level components responsible for arranging **Atoms** and **Molecules** into a cohesive layout. They do not deal with the actual content of the page but focus on how different UI elements (such as Molecules and Atoms) are organized.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Examples of Templates:
+1. **HeaderTemplate**: A template layout for the header of the website, containing navigation links, a logo, and possibly a search bar.
+2. **DashboardTemplate**: A dashboard layout, typically consisting of a sidebar for navigation and a main content area.
+3. **PageTemplate**: A general layout for any page, typically containing a header, footer, and main content section.
+
+---
+#### atom
+**Atoms** are the basic building blocks of the UI. They represent the smallest possible components, such as buttons, inputs, labels, or icons. Atoms should be simple, reusable, and independent of the rest of the system.
+##### Examples of Atoms:
+- **Button**: A simple button component with different styles.
+- **InputField**: A basic text input element.
+- **Label**: A text label for form elements.
