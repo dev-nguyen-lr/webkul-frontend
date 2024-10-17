@@ -14,24 +14,41 @@
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,tsx, --ignore-path .gitignore .",
     "stylelint": "stylelint *.tsx,*jsx --config stylelint.config.js ./src",
     "stylelint:fix": "stylelint *.tsx,*jsx --fix --config stylelint.config.js ./src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "next": "14.2.15",
+    "postcss": "^8.4.47",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.15"
+    "styled-components": "^6.1.13",
+    "tailwindcss": "^3.4.14"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@chromatic-com/storybook": "^1.9.0",
+    "@storybook/addon-essentials": "^8.3.5",
+    "@storybook/addon-interactions": "^8.3.5",
+    "@storybook/addon-links": "^8.3.5",
+    "@storybook/addon-onboarding": "^8.3.5",
+    "@storybook/blocks": "^8.3.5",
+    "@storybook/nextjs": "^8.3.5",
+    "@storybook/react": "^8.3.5",
+    "@storybook/test": "^8.3.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.15",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-storybook": "^0.9.0",
     "husky": "^8.0.0",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
-    "eslint-config-next": "14.2.15"
+    "storybook": "^8.3.5",
+    "typescript": "^5"
   }
 }
