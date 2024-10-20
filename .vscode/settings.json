@@ -4,6 +4,7 @@
   "editor.tabSize": 2,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
+    "source.addMissingImports.ts": "never",
     "source.fixAll.eslint": "explicit"
   },
   "eslint.validate": ["javascript", "typescript"],
