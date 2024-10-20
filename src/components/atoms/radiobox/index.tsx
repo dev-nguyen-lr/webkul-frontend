@@ -4,24 +4,30 @@ interface RadioBoxProps {
   id?: string
   label: string
   checked?: boolean
+  name?: string
   onChange?: (_e: React.ChangeEvent<HTMLInputElement>) => void
+  disabled?: boolean
 }
 
 const RadioBox: React.FC<RadioBoxProps> = ({
   id,
   label,
   checked,
+  disabled = false,
   onChange,
+  name,
 }) => {
   return (
     <div className="inline-flex items-center relative">
       <input
         type="radio"
         id={id}
+        disabled={disabled}
         checked={checked}
         onChange={onChange}
         // className="form-radio h-5 w-5 text-blue-500"
-        className="custom-radio"
+        className="form-radio"
+        name={name}
       />
       <label htmlFor={id} className="ml-2 text-gray-800">
         {label}

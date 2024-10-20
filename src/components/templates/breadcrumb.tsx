@@ -5,10 +5,11 @@ interface BreadCrumbItem {
   label: string
 }
 
-interface BreadCrumbProps {
-  items: BreadCrumbItem[]
-}
-const BreadCrumb: React.FC<BreadCrumbProps> = ({ items }) => {
+const items: BreadCrumbItem[] = [
+  { link: '/admin/', label: 'ダッシュボード' },
+  { link: '/order/', label: '注文一覧' },
+]
+const BreadCrumb = () => {
   return (
     <div id="pan">
       <ul>

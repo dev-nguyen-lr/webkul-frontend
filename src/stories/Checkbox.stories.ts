@@ -1,12 +1,12 @@
 import { action } from '@storybook/addon-actions' // To track onChange action
 
-import Checkbox from '@/components/checkbox'
+import CheckBox from '@/components/atoms/checkbox'
 import type { Meta, StoryObj } from '@storybook/react'
 import '../app/globals.css'
 
-const meta: Meta<typeof Checkbox> = {
-  title: 'Component/Checkbox',
-  component: Checkbox,
+const meta: Meta<typeof CheckBox> = {
+  title: 'Component/CheckBox',
+  component: CheckBox,
   parameters: {
     layout: 'centered',
   },

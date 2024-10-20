@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions' // To track onChange action
 
-import RadioBox from '@/components/radiobox'
+import RadioBox from '@/components/atoms/radiobox'
 import type { Meta, StoryObj } from '@storybook/react'
 import '../app/globals.css'
 
@@ -12,14 +12,16 @@ const meta: Meta<typeof RadioBox> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    checked: { control: 'boolean' }, // Fix the type definition
-    label: { control: 'text' }, // Fix the type definition
-    onChange: { action: 'changed' }, // Use action to track events
+    checked: { control: 'boolean' },
+    label: { control: 'text' },
+    onChange: { action: 'changed' },
+    disabled: { control: 'boolean' },
   },
   args: {
     checked: false, // Default checked value
     label: 'Default Label', // Default label
     onChange: action('changed'), // Using the action addon to track changes
+    disabled: false, // Default disabled state
   },
 }
 

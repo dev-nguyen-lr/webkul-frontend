@@ -1,20 +1,22 @@
 import React from 'react'
 
-interface CheckboxProps {
+interface CheckBoxProps {
   id?: string
   name?: string
   label?: string
   checked?: boolean
+  disabled?: boolean
   // eslint-disable-next-line no-unused-vars
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({
+const CheckBox: React.FC<CheckBoxProps> = ({
   id,
   name,
   label,
   checked,
   onChange,
+  disabled = false,
 }) => {
   return (
     <div className="inline-flex items-center relative">
@@ -24,7 +26,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
         type="checkbox"
         checked={checked}
         onChange={onChange}
-        className="custom-checkbox"
+        className="form-checkbox"
+        disabled={disabled}
         // className={`
         //   appearance-none w-5 h-5 cursor-pointer border-2 border-gray-300 bg-white focus:outline-none
         //   ${checked ? 'border-blue-500' : ''}
@@ -52,4 +55,4 @@ const Checkbox: React.FC<CheckboxProps> = ({
   )
 }
 
-export default Checkbox
+export default CheckBox

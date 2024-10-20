@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import Col from '../col'
+import Col from '@/components/atoms/col'
 
 interface CardProps {
   children: ReactNode
