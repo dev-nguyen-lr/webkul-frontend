@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}', // Note the addition of the `app` directory.
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,7 +11,17 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      borderWidth: {
+        3: '3px',
+      },
+      borderRadius: {
+        2: '2px',
+      },
+      colors: {
+        'blue-0': '#007ebe',
+      },
+    },
   },
-  plugins: [],
 }
+export default config

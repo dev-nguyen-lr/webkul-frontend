@@ -126,13 +126,9 @@ a {
 /* Custom radio button styles */
 .form-radio {
   appearance: none; /* Remove default styling */
-  width: 20px;
-  height: 20px;
-  border: 3px solid #007ebe; /* Outer circle color */
   border-radius: 50%;
   display: inline-block;
   position: relative;
-  cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
@@ -152,36 +148,6 @@ a {
 .form-radio:focus {
   outline: 2px solid #007ebe;
   outline-offset: 2px;
-}
-
-/* Custom checkbox styles */
-.form-checkbox {
-  appearance: none; /* Remove default checkbox styling */
-  width: 20px;
-  height: 20px;
-  border: 3px solid #ddd; /* Outer box color */
-  border-radius: 2px; /* Slightly rounded edges for a square box */
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  background-color: white; /* Default background */
-}
-
-.form-checkbox:checked {
-  background-color: white; /* Blue background when checked */
-  border-color: #007ebe; /* Keep the border blue */
-}
-
-.form-checkbox:checked::after {
-  content: '';
-  position: absolute;
-  top: 38%;
-  left: 50%;
-  width: 6px;
-  height: 10px;
-  border-right: 3px solid #007ebe; /* Right part of the checkmark */
-  border-bottom: 3px solid #007ebe; /* Bottom part of the checkmark */
-  transform: translate(-50%, -50%) rotate(45deg); /* Center and rotate */
 }
 
 header {

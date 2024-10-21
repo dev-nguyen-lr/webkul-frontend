@@ -26,7 +26,9 @@ const RadioBox: React.FC<RadioBoxProps> = ({
         checked={checked}
         onChange={onChange}
         // className="form-radio h-5 w-5 text-blue-500"
-        className="form-radio"
+        className="form-radio
+        w-8 h-8 border-3 border-gray-300 rounded-[50%] cursor-pointer appearance-none bg-white inline-block relative	
+        "
         name={name}
       />
       <label htmlFor={id} className="ml-2 text-gray-800">
