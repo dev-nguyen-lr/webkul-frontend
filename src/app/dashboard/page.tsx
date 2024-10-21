@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <MultiCardRow>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -24,7 +24,7 @@ export default function Home() {
             </p>
           </div>
         </Card>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -35,42 +35,7 @@ export default function Home() {
             </p>
           </div>
         </Card>
-        <Card size={4}>
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
-      <MultiCardRow>
-        <Card size={4}>
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4}>
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -83,7 +48,7 @@ export default function Home() {
         </Card>
       </MultiCardRow>
       <MultiCardRow>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -94,7 +59,7 @@ export default function Home() {
             </p>
           </div>
         </Card>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -105,42 +70,7 @@ export default function Home() {
             </p>
           </div>
         </Card>
-        <Card size={4}>
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
-      <MultiCardRow>
-        <Card size={4}>
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4}>
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -153,7 +83,7 @@ export default function Home() {
         </Card>
       </MultiCardRow>
       <MultiCardRow>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -164,7 +94,7 @@ export default function Home() {
             </p>
           </div>
         </Card>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -175,42 +105,7 @@ export default function Home() {
             </p>
           </div>
         </Card>
-        <Card size={4}>
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
-      <MultiCardRow>
-        <Card size={4}>
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4}>
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -223,7 +118,7 @@ export default function Home() {
         </Card>
       </MultiCardRow>
       <MultiCardRow>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -234,7 +129,7 @@ export default function Home() {
             </p>
           </div>
         </Card>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -245,7 +140,7 @@ export default function Home() {
             </p>
           </div>
         </Card>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -258,7 +153,7 @@ export default function Home() {
         </Card>
       </MultiCardRow>
       <MultiCardRow>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -269,7 +164,7 @@ export default function Home() {
             </p>
           </div>
         </Card>
-        <Card size={4}>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>
@@ -280,7 +175,112 @@ export default function Home() {
             </p>
           </div>
         </Card>
-        <Card size={4}>
+        <Card size={4} type="tile">
+          <i>
+            <span className="material-symbols-outlined">health_and_beauty</span>
+          </i>
+          <div className="inner">
+            <Heading size="heading3">注文商品数</Heading>
+            <p>
+              0,000,000<span>点</span>
+            </p>
+          </div>
+        </Card>
+      </MultiCardRow>
+      <MultiCardRow>
+        <Card size={4} type="tile">
+          <i>
+            <span className="material-symbols-outlined">health_and_beauty</span>
+          </i>
+          <div className="inner">
+            <Heading size="heading3">注文商品数</Heading>
+            <p>
+              0,000,000<span>点</span>
+            </p>
+          </div>
+        </Card>
+        <Card size={4} type="tile">
+          <i>
+            <span className="material-symbols-outlined">health_and_beauty</span>
+          </i>
+          <div className="inner">
+            <Heading size="heading3">注文商品数</Heading>
+            <p>
+              0,000,000<span>点</span>
+            </p>
+          </div>
+        </Card>
+        <Card size={4} type="tile">
+          <i>
+            <span className="material-symbols-outlined">health_and_beauty</span>
+          </i>
+          <div className="inner">
+            <Heading size="heading3">注文商品数</Heading>
+            <p>
+              0,000,000<span>点</span>
+            </p>
+          </div>
+        </Card>
+      </MultiCardRow>
+      <MultiCardRow>
+        <Card size={4} type="tile">
+          <i>
+            <span className="material-symbols-outlined">health_and_beauty</span>
+          </i>
+          <div className="inner">
+            <Heading size="heading3">注文商品数</Heading>
+            <p>
+              0,000,000<span>点</span>
+            </p>
+          </div>
+        </Card>
+        <Card size={4} type="tile">
+          <i>
+            <span className="material-symbols-outlined">health_and_beauty</span>
+          </i>
+          <div className="inner">
+            <Heading size="heading3">注文商品数</Heading>
+            <p>
+              0,000,000<span>点</span>
+            </p>
+          </div>
+        </Card>
+        <Card size={4} type="tile">
+          <i>
+            <span className="material-symbols-outlined">health_and_beauty</span>
+          </i>
+          <div className="inner">
+            <Heading size="heading3">注文商品数</Heading>
+            <p>
+              0,000,000<span>点</span>
+            </p>
+          </div>
+        </Card>
+      </MultiCardRow>
+      <MultiCardRow>
+        <Card size={4} type="tile">
+          <i>
+            <span className="material-symbols-outlined">health_and_beauty</span>
+          </i>
+          <div className="inner">
+            <Heading size="heading3">注文商品数</Heading>
+            <p>
+              0,000,000<span>点</span>
+            </p>
+          </div>
+        </Card>
+        <Card size={4} type="tile">
+          <i>
+            <span className="material-symbols-outlined">health_and_beauty</span>
+          </i>
+          <div className="inner">
+            <Heading size="heading3">注文商品数</Heading>
+            <p>
+              0,000,000<span>点</span>
+            </p>
+          </div>
+        </Card>
+        <Card size={4} type="tile">
           <i>
             <span className="material-symbols-outlined">health_and_beauty</span>
           </i>

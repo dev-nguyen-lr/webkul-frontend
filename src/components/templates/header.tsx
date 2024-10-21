@@ -151,7 +151,7 @@ const Header: React.FC<HeaderProps> = ({ onClose }) => {
           <i></i>
         </a>
       </CloseButton>
-      <LogoContainer className="logo">
+      <LogoContainer>
         <a href="/">
           <Image
             src="/images/pro.webp"

@@ -44,7 +44,7 @@ const StyledFooter = styled.footer`
     }
   }
 
-  .cp {
+  p {
     margin-left: 20px;
   }
 
@@ -64,7 +64,7 @@ const StyledFooter = styled.footer`
       padding: 5px;
     }
 
-    .cp {
+    p {
       width: 100%;
       text-align: center;
       margin-left: 0;
@@ -74,7 +74,7 @@ const StyledFooter = styled.footer`
 
 const Footer = () => (
   <StyledFooter>
-    <p className="cp">&copy; BEAUTY SCANDAL</p>
+    <p>&copy; BEAUTY SCANDAL</p>
   </StyledFooter>
 )
 
