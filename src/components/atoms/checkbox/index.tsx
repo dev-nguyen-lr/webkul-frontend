@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 interface CheckBoxProps {
   id?: string
@@ -10,6 +11,49 @@ interface CheckBoxProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
+const CheckBoxWrapper = styled.div`
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+`
+
+const StyledInput = styled.input`
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ddd;
+  border-radius: 2px;
+  cursor: pointer;
+  appearance: none;
+  background-color: white;
+  display: inline-block;
+  position: relative;
+
+  &:checked {
+    border: 3px solid #007ebe;
+  }
+
+  &:checked::after {
+    content: '';
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    width: 6px;
+    height: 10px;
+    border-right: 3px solid #007ebe;
+    border-bottom: 3px solid #007ebe;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+`
+
+const Label = styled.label`
+  margin-left: 8px;
+  color: #1f2937;
+`
+
 const CheckBox: React.FC<CheckBoxProps> = ({
   id,
   name,
@@ -19,26 +63,17 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   disabled = false,
 }) => {
   return (
-    <div className="inline-flex items-center relative">
-      <input
+    <CheckBoxWrapper>
+      <StyledInput
         id={id}
         name={name}
         type="checkbox"
         checked={checked}
         onChange={onChange}
-        className=" 
-        w-8 h-8 border-3 border-gray-300 rounded-2 cursor-pointer appearance-none bg-white inline-block relative	
-        checked:border-blue-0 
-        checked:after:top-[38%] checked:after:absolute checked:after:left-[50%] checked:after:w-[6px] checked:after:h-[10px]
-        checked:after:border-r-3 checked:after:border-b-3 checked:after:border-blue-0
-        checked:after:transform checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:rotate-45
-        "
         disabled={disabled}
       />
-      <label htmlFor={id} className="ml-2 text-gray-800">
-        {label}
-      </label>
-    </div>
+      <Label htmlFor={id}>{label}</Label>
+    </CheckBoxWrapper>
   )
 }
 

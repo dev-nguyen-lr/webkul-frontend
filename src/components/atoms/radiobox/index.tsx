@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 interface RadioBoxProps {
   id?: string
@@ -9,6 +10,49 @@ interface RadioBoxProps {
   disabled?: boolean
 }
 
+const RadioBoxWrapper = styled.div`
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+`
+
+const StyledRadio = styled.input`
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ddd;
+  border-radius: 100px;
+  cursor: pointer;
+  appearance: none;
+  background-color: white;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+
+  &:checked {
+    border-color: #007ebe;
+  }
+  &:checked::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100px;
+    background: #007ebe;
+    border: none;
+    transform: rotate(45deg);
+  }
+  &:disabled {
+    cursor: not-allowed;
+  }
+`
+
+const Label = styled.label`
+  margin-left: 8px;
+  color: #1f2937;
+`
+
 const RadioBox: React.FC<RadioBoxProps> = ({
   id,
   label,
@@ -18,23 +62,17 @@ const RadioBox: React.FC<RadioBoxProps> = ({
   name,
 }) => {
   return (
-    <div className="inline-flex items-center relative">
-      <input
+    <RadioBoxWrapper>
+      <StyledRadio
         type="radio"
         id={id}
         disabled={disabled}
         checked={checked}
         onChange={onChange}
-        // className="form-radio h-5 w-5 text-blue-500"
-        className="form-radio
-        w-8 h-8 border-3 border-gray-300 rounded-[50%] cursor-pointer appearance-none bg-white inline-block relative	
-        "
         name={name}
       />
-      <label htmlFor={id} className="ml-2 text-gray-800">
-        {label}
-      </label>
-    </div>
+      <Label htmlFor={id}>{label}</Label>
+    </RadioBoxWrapper>
   )
 }
 
