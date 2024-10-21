@@ -39,7 +39,7 @@ const MainPage = styled.div`
   width: 100%;
   padding-top: 65px;
 `
-const Main = styled.main`
+const Main = styled.main<{ closed: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -52,7 +52,8 @@ const Main = styled.main`
   position: relative;
   z-index: 1;
 
-  &.close,
+  ${({ closed }) => closed && 'margin-left: 0;'}
+
   &.sp {
     margin-left: 0;
     width: 100%;
@@ -100,7 +101,7 @@ const HeaderAndSidebar: React.FC<PropsWithChildren> = ({ children }) => {
         }}
       />
       <SideBar closed={closed} />
-      <Main>
+      <Main closed={closed}>
         <PageTitleRow>
           <Col>
             <Heading size="heading1">ダッシュボード</Heading>
