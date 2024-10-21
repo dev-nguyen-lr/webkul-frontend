@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 :root {
   --background: #ffffff;
@@ -14,16 +14,27 @@
   }
 }
 
-html,
-body {
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  color-scheme: light;
   max-width: 100vw;
   overflow-x: hidden;
 }
 
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
 body {
+  font-size: 1.5rem;
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, Verdana, Roboto,
+    '游ゴシック', 'Yu Gothic', '游ゴシック体', 'YuGothic', 'ヒラギノ角ゴ Pro W3',
+    'Hiragino Kaku Gothic Pro', 'Meiryo UI', 'メイリオ', Meiryo,
+    'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -32,15 +43,14 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  outline: none;
+  list-style: none;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

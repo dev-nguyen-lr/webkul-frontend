@@ -12,43 +12,24 @@
   "globals": {
     "JSX": true
   },
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "parserOptions": {
     "ecmaVersion": 2022,
     "project": "./tsconfig.json"
   },
   "rules": {
-    "prettier/prettier": [
-      "error"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "no-var": [
-      "error"
-    ],
+    "prettier/prettier": ["error"],
+    "quotes": ["error", "single"],
+    "no-var": ["error"],
     "no-console": [
       "error",
       {
-        "allow": [
-          "error"
-        ]
+        "allow": ["error"]
       }
     ],
-    "no-multi-spaces": [
-      "error"
-    ],
-    "semi": [
-      "error",
-      "never"
-    ],
-    "space-in-parens": [
-      "error",
-      "never"
-    ],
+    "no-multi-spaces": ["error"],
+    "semi": ["error", "never"],
+    "space-in-parens": ["error", "never"],
     "no-multiple-empty-lines": [
       "error",
       {
