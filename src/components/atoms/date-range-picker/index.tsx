@@ -4,6 +4,11 @@ import 'react-datepicker/dist/react-datepicker.css'; // Ensure this is still imp
 import { FiCalendar } from 'react-icons/fi';
 import styled from 'styled-components';
 
+// Interface for the component props
+interface DateRangePickerProps {
+  dateFormat?: string;
+}
+
 // Styled Components
 const DateRangeWrapper = styled.div`
   display: flex;
@@ -38,9 +43,9 @@ const DateSeparator = styled.span`
   color: #4b5563;
 `;
 
-const DateRangePicker: React.FC = () => {
-  const [startDate, setStartDate] = useState<Date | undefined>(undefined);
-  const [endDate, setEndDate] = useState<Date | undefined>(undefined);
+const DateRangePicker: React.FC<DateRangePickerProps> = ({ dateFormat = "yyyy/MM/dd" }) => {
+  const [startDate, setStartDate] = useState<Date | undefined>(undefined); // Use undefined
+  const [endDate, setEndDate] = useState<Date | undefined>(undefined); // Use undefined
 
   return (
     <DateRangeWrapper>
@@ -51,10 +56,9 @@ const DateRangePicker: React.FC = () => {
       <StyledDatePickerWrapper>
         <DatePicker
           selected={startDate}
-          onChange={(date) => setStartDate(date as Date | undefined)}
-          dateFormat="yyyy/MM/dd"
+          onChange={(date) => setStartDate(date as Date | undefined)} // Allow undefined
+          dateFormat={dateFormat} // Pass dateFormat from props
           placeholderText="Start Date"
-          className="border border-gray-300 rounded px-2 py-1 focus:outline-none"
           selectsStart
           startDate={startDate}
           endDate={endDate}
@@ -69,8 +73,8 @@ const DateRangePicker: React.FC = () => {
       <StyledDatePickerWrapper>
         <DatePicker
           selected={endDate}
-          onChange={(date) => setEndDate(date as Date | undefined)}
-          dateFormat="yyyy/MM/dd"
+          onChange={(date) => setEndDate(date as Date | undefined)} // Allow undefined
+          dateFormat={dateFormat} // Pass dateFormat from props
           placeholderText="End Date"
           selectsEnd
           startDate={startDate}
