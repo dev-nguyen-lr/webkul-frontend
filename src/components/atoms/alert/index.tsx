@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 interface AlertProps {
   type: 'success' | 'error';
-  message: string;
+  children: React.ReactNode; // Replacing `message` with `children`
 }
 
 const AlertWrapper = styled.div<{ type: 'success' | 'error' }>`
@@ -18,22 +18,17 @@ const AlertWrapper = styled.div<{ type: 'success' | 'error' }>`
     props.type === 'success' ? '#0f5132' : '#842029'};
 `;
 
-const AlertText = styled.p`
-  margin: 0;
-  font-size: 16px;
-`;
-
 const StrongText = styled.strong`
   display: block;
   font-weight: bold;
   margin-bottom: 8px;
 `;
 
-const Alert: React.FC<AlertProps> = ({ type, message }) => {
+const Alert: React.FC<AlertProps> = ({ type, children }) => {
   return (
     <AlertWrapper type={type}>
       <StrongText>{type === 'success' ? '完了メッセージ:' : 'エラーメッセージ:'}</StrongText>
-      <AlertText>{message}</AlertText>
+      {children}
     </AlertWrapper>
   );
 };
