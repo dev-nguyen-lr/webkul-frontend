@@ -31,7 +31,7 @@ const IconWrapper = styled.div`
 
 const StyledInput = styled.input<{ hoverColor: string; hasError: boolean }>`
   width: 100%;
-  padding: 8px 16px;
+  padding: 15px 10px;
   padding-left: 40px; /* Space for the icon */
   border: 1px solid #d1d5db;
   border-radius: 4px;

@@ -8,31 +8,35 @@ interface CustomButtonProps {
   onClick?: () => void;
   children: React.ReactNode;
   className?: string; // Additional classes for styling
+  type?: 'button' | 'submit' | 'reset'; // Adding type for button types
 }
 
 // Define sizes for the button
 const buttonSizes = {
   small: css`
     font-size: 12px;
-    padding: 8px 12px;
+    padding: 7px 15px;
+    min-width: 140px;
   `,
   medium: css`
     font-size: 16px;
     padding: 10px 16px;
+    min-width: 140px;
   `,
   large: css`
     font-size: 20px;
     padding: 12px 20px;
+    min-width: 140px;
   `,
 };
 
 // Define variants for the button
 const buttonVariants = {
   primary: css`
-    background-color: #007bff;
+    background-color: #333;
     color: white;
     &:hover {
-      background-color: #0056b3;
+      background-color: #000;
     }
     &:focus {
       box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
@@ -110,6 +114,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   onClick,
   children,
   className = '',
+  type = 'button', // Default button type
 }) => {
   return (
     <StyledButton
@@ -118,6 +123,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       disabled={disabled}
       onClick={onClick}
       className={className}
+      type={type} // Pass the type to the native button element
     >
       {children}
     </StyledButton>
