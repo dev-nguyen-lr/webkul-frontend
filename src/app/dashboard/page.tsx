@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { ColumnDef } from '@tanstack/react-table'
 
 import Row from '@/components/atoms/row'
 import UploadBox from '@/components/atoms/upload-box'
@@ -12,39 +11,8 @@ import MultiCardRow from '@/components/molecules/multi-card-row'
 import Heading from '@/components/atoms/heading'
 import DataTableHeading from '@/components/molecules/datatable/data-table-heading'
 import Icon from '@/components/atoms/icon'
-import { DataTable } from '@/components/molecules/datatable'
-import { Order } from '@/@types/datatable'
-import { DataTableColumnHeader } from '@/components/molecules/datatable/data-table-column-header'
-import Badge from '@/components/atoms/badge'
 
-const orders = [
-  {
-    id: '山田 太郎',
-    status: 'ステータス',
-  },
-]
 export default function Home() {
-  const columns: ColumnDef<Order>[] = [
-    {
-      accessorKey: 'id',
-      header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="名前" />
-      ),
-      cell: ({ row }) => <div>{row.getValue('id')}</div>,
-      enableSorting: false,
-      enableHiding: false,
-    },
-    {
-      accessorKey: 'status',
-      header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="メールアドレス" />
-      ),
-      cell: ({ row }) => {
-        return <Badge>{row.getValue('status')}</Badge>
-      },
-      // cell: ({ row }) => <div>{row.getValue('id')}</div>,
-    },
-  ]
   return (
     <>
       <MultiCardRow>
@@ -128,7 +96,7 @@ export default function Home() {
           <DataTableHeading size="heading2" link="/order">
             注文一覧
           </DataTableHeading>
-          <DataTable columns={columns} data={orders} />
+          {/* <DataTable columns={columns} data={orders} /> */}
         </Card>
       </Row>
       <Row>
