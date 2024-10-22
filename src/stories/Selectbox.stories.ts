@@ -14,6 +14,7 @@ const meta: Meta<typeof SelectBox> = {
     placeholder: { control: 'text' }, // Allow control for placeholder
     options: { control: 'object' }, // Allow control for options as an object
     onChange: { action: 'changed' }, // Track changes via action addon
+    disabled: { control: 'boolean' }, // Control for disabled prop
   },
   args: {
     selectedValue: '', // Default selected value
@@ -24,6 +25,7 @@ const meta: Meta<typeof SelectBox> = {
       { label: 'Option 3', value: 'option3' },
     ], // Default options for the SelectBox
     onChange: action('changed'), // Using the action addon to track changes
+    disabled: false, // Default disabled state
   },
 };
 
@@ -34,6 +36,7 @@ export const Default: Story = {
   args: {
     placeholder: 'Select an option',
     selectedValue: '',
+    disabled: false, // Not disabled by default
   },
 };
 
@@ -41,5 +44,14 @@ export const PreSelected: Story = {
   args: {
     placeholder: 'Select an option',
     selectedValue: 'option2', // Pre-selected value
+    disabled: false,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    placeholder: 'Select an option',
+    selectedValue: '',
+    disabled: true, // Disabled state
   },
 };
