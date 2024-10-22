@@ -1,6 +1,3 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
 
 :root {
   --background: #ffffff;
@@ -51,6 +48,13 @@ body {
 }
 
 a {
-  color: inherit;
+  color: #007ebe;
   text-decoration: none;
+}
+a:hover {
+  color: #3da7dd;
+}
+span[class*='material-'] {
+  line-height: 1;
+  transform: translateY(0.04em);
 }
