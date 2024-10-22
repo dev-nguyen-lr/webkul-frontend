@@ -1,11 +1,53 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import styled, { css } from 'styled-components';
 
+// Interface for Pagination Props
 export interface PaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
   size?: 'small' | 'medium' | 'large'; // Size prop for dynamic sizing
 }
+
+// Styled-components for Pagination
+const PaginationWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Button = styled.button<{ isActive: boolean; isDisabled: boolean; size: string }>`
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: ${(props) => (props.isActive ? '#007bff' : '#fff')};
+  color: ${(props) => (props.isActive ? '#fff' : '#000')};
+  cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
+  margin: 0 4px;
+  opacity: ${(props) => (props.isDisabled ? 0.5 : 1)};
+
+  ${(props) =>
+    props.size === 'small' &&
+    css`
+      padding: 4px 8px;
+      font-size: 12px;
+    `}
+  ${(props) =>
+    props.size === 'medium' &&
+    css`
+      padding: 6px 12px;
+      font-size: 14px;
+    `}
+  ${(props) =>
+    props.size === 'large' &&
+    css`
+      padding: 8px 16px;
+      font-size: 16px;
+    `}
+`;
+
+const Ellipsis = styled.span`
+  margin: 0 4px;
+`;
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
@@ -17,7 +59,8 @@ const Pagination: React.FC<PaginationProps> = ({
   const isLastPage = currentPage === totalPages;
   const maxVisibleButtons = 5;
 
-  const getPageNumbers = () => {
+  // Memoize the page number calculation
+  const pages = useMemo(() => {
     let startPage: number, endPage: number;
 
     if (totalPages <= maxVisibleButtons) {
@@ -39,73 +82,70 @@ const Pagination: React.FC<PaginationProps> = ({
     }
 
     return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
-  };
-
-  const pages = getPageNumbers();
-
-  const sizeStyles = {
-    small: { padding: '4px 8px', fontSize: '12px' },
-    medium: { padding: '6px 12px', fontSize: '14px' },
-    large: { padding: '8px 16px', fontSize: '16px' },
-  };
-
-  const buttonStyle = (isActive: boolean, isDisabled: boolean = false) => ({
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    backgroundColor: isActive ? '#007bff' : '#fff',
-    color: isActive ? '#fff' : '#000',
-    cursor: isDisabled ? 'not-allowed' : 'pointer',
-    margin: '0 4px',
-    ...sizeStyles[size],
-    ...(isDisabled && { opacity: 0.5 }),
-  });
+  }, [currentPage, totalPages]);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <button
-        style={buttonStyle(false, isFirstPage)}
+    <PaginationWrapper>
+      {/* Previous Button */}
+      <Button
+        size={size}
+        isActive={false}
+        isDisabled={isFirstPage}
         onClick={() => !isFirstPage && onPageChange(currentPage - 1)}
         disabled={isFirstPage}
       >
         Previous
-      </button>
+      </Button>
 
+      {/* First Page and Ellipsis */}
       {pages[0] > 1 && (
         <>
-          <button style={buttonStyle(false)} onClick={() => onPageChange(1)}>
+          <Button size={size} isActive={false} isDisabled={false} onClick={() => onPageChange(1)}>
             1
-          </button>
-          {pages[0] > 2 && <span style={{ margin: '0 4px' }}>...</span>}
+          </Button>
+          {pages[0] > 2 && <Ellipsis>...</Ellipsis>}
         </>
       )}
 
+      {/* Page Numbers */}
       {pages.map((page) => (
-        <button
+        <Button
           key={page}
-          style={buttonStyle(page === currentPage)}
+          size={size}
+          isActive={page === currentPage}
+          isDisabled={false}
           onClick={() => onPageChange(page)}
         >
           {page}
-        </button>
+        </Button>
       ))}
 
+      {/* Last Page and Ellipsis */}
       {pages[pages.length - 1] < totalPages && (
         <>
-          {pages[pages.length - 1] < totalPages - 1 && <span style={{ margin: '0 4px' }}>...</span>}
-          <button style={buttonStyle(false)} onClick={() => onPageChange(totalPages)}>
+          {pages[pages.length - 1] < totalPages - 1 && <Ellipsis>...</Ellipsis>}
+          <Button
+            size={size}
+            isActive={false}
+            isDisabled={false}
+            onClick={() => onPageChange(totalPages)}
+          >
             {totalPages}
-          </button>
+          </Button>
         </>
       )}
 
-      <button
-        style={buttonStyle(false, isLastPage)}
+      {/* Next Button */}
+      <Button
+        size={size}
+        isActive={false}
+        isDisabled={isLastPage}
         onClick={() => !isLastPage && onPageChange(currentPage + 1)}
         disabled={isLastPage}
       >
         Next
-      </button>
-    </div>
+      </Button>
+    </PaginationWrapper>
   );
 };
 

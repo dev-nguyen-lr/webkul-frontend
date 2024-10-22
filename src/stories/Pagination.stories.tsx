@@ -25,12 +25,23 @@ const meta: Meta<typeof Pagination> = {
     currentPage: 1,
     totalPages: 10,
     size: 'medium',
-    onPageChange: undefined, // Handled locally in each story
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+// Helper component to wrap Pagination and manage its state locally
+const PaginationWrapper: React.FC<any> = (args) => {
+  const [currentPage, setCurrentPage] = useState(args.currentPage);
+  return (
+    <Pagination
+      {...args}
+      currentPage={currentPage}
+      onPageChange={(page) => setCurrentPage(page)}
+    />
+  );
+};
 
 // Default Pagination story
 export const Default: Story = {
@@ -39,17 +50,7 @@ export const Default: Story = {
     totalPages: 10,
     size: 'medium',
   },
-  render: (args) => {
-    const [currentPage, setCurrentPage] = useState(args.currentPage);
-
-    return (
-      <Pagination
-        {...args}
-        currentPage={currentPage}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
-    );
-  },
+  render: (args) => <PaginationWrapper {...args} />,
 };
 
 // Pagination with small size
@@ -59,17 +60,7 @@ export const SmallPagination: Story = {
     totalPages: 10,
     size: 'small',
   },
-  render: (args) => {
-    const [currentPage, setCurrentPage] = useState(args.currentPage);
-
-    return (
-      <Pagination
-        {...args}
-        currentPage={currentPage}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
-    );
-  },
+  render: (args) => <PaginationWrapper {...args} />,
 };
 
 // Pagination with large size
@@ -79,15 +70,5 @@ export const LargePagination: Story = {
     totalPages: 10,
     size: 'large',
   },
-  render: (args) => {
-    const [currentPage, setCurrentPage] = useState(args.currentPage);
-
-    return (
-      <Pagination
-        {...args}
-        currentPage={currentPage}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
-    );
-  },
+  render: (args) => <PaginationWrapper {...args} />,
 };
