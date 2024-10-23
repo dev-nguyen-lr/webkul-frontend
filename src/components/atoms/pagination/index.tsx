@@ -14,17 +14,21 @@ const PaginationWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px; /* Add some space between the buttons */
 `;
 
-const Button = styled.button<{ isActive: boolean; isDisabled: boolean; size: string }>`
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: ${(props) => (props.isActive ? '#007bff' : '#fff')};
-  color: ${(props) => (props.isActive ? '#fff' : '#000')};
+const Button = styled.button<{ isDisabled: boolean; size: string }>`
+  border: 1px solid #333;
+  border-radius: 3px;
+  background-color: #f5f5f5;
+  color: #000;
   cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
   margin: 0 4px;
   opacity: ${(props) => (props.isDisabled ? 0.5 : 1)};
-
+  &:hover {
+    background: #000;
+    color: #fff;
+  }
   ${(props) =>
     props.size === 'small' &&
     css`
@@ -45,8 +49,10 @@ const Button = styled.button<{ isActive: boolean; isDisabled: boolean; size: str
     `}
 `;
 
-const Ellipsis = styled.span`
-  margin: 0 4px;
+const PageNumberDisplay = styled.span`
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 8px;
 `;
 
 const Pagination: React.FC<PaginationProps> = ({
@@ -55,95 +61,58 @@ const Pagination: React.FC<PaginationProps> = ({
   onPageChange,
   size = 'medium',
 }) => {
-  const isFirstPage = currentPage === 1;
-  const isLastPage = currentPage === totalPages;
-  const maxVisibleButtons = 5;
+  // Memoized logic for determining whether we are on the first or last page
+  const isFirstPage = useMemo(() => currentPage === 1, [currentPage]);
+  const isLastPage = useMemo(() => currentPage === totalPages, [currentPage, totalPages]);
 
-  // Memoize the page number calculation
-  const pages = useMemo(() => {
-    let startPage: number, endPage: number;
-
-    if (totalPages <= maxVisibleButtons) {
-      startPage = 1;
-      endPage = totalPages;
-    } else {
-      const offset = Math.floor(maxVisibleButtons / 2);
-
-      if (currentPage <= offset + 1) {
-        startPage = 1;
-        endPage = maxVisibleButtons;
-      } else if (currentPage + offset >= totalPages) {
-        startPage = totalPages - maxVisibleButtons + 1;
-        endPage = totalPages;
-      } else {
-        startPage = currentPage - offset;
-        endPage = currentPage + offset;
-      }
-    }
-
-    return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
-  }, [currentPage, totalPages]);
+  // Memoize the display for current page / total pages
+  const pageDisplay = useMemo(() => `${currentPage}/${totalPages}`, [currentPage, totalPages]);
 
   return (
     <PaginationWrapper>
+      {/* First Button */}
+      <Button
+        size={size}
+        isDisabled={isFirstPage}
+        onClick={() => !isFirstPage && onPageChange(1)}
+        disabled={isFirstPage}
+      >
+        «
+      </Button>
+
       {/* Previous Button */}
       <Button
         size={size}
-        isActive={false}
         isDisabled={isFirstPage}
         onClick={() => !isFirstPage && onPageChange(currentPage - 1)}
         disabled={isFirstPage}
       >
-        Previous
+        ‹
       </Button>
 
-      {/* First Page and Ellipsis */}
-      {pages[0] > 1 && (
-        <>
-          <Button size={size} isActive={false} isDisabled={false} onClick={() => onPageChange(1)}>
-            1
-          </Button>
-          {pages[0] > 2 && <Ellipsis>...</Ellipsis>}
-        </>
-      )}
-
-      {/* Page Numbers */}
-      {pages.map((page) => (
-        <Button
-          key={page}
-          size={size}
-          isActive={page === currentPage}
-          isDisabled={false}
-          onClick={() => onPageChange(page)}
-        >
-          {page}
-        </Button>
-      ))}
-
-      {/* Last Page and Ellipsis */}
-      {pages[pages.length - 1] < totalPages && (
-        <>
-          {pages[pages.length - 1] < totalPages - 1 && <Ellipsis>...</Ellipsis>}
-          <Button
-            size={size}
-            isActive={false}
-            isDisabled={false}
-            onClick={() => onPageChange(totalPages)}
-          >
-            {totalPages}
-          </Button>
-        </>
-      )}
+      {/* Page Number Display */}
+      <PageNumberDisplay>
+        {pageDisplay}
+      </PageNumberDisplay>
 
       {/* Next Button */}
       <Button
         size={size}
-        isActive={false}
         isDisabled={isLastPage}
         onClick={() => !isLastPage && onPageChange(currentPage + 1)}
         disabled={isLastPage}
       >
-        Next
+        ›
+      </Button>
+
+      {/* Last Button */}
+      <Button
+        size={size}
+        isDisabled={isLastPage}
+        onClick={() => !isLastPage && onPageChange(totalPages)}
+        disabled={isLastPage}
+      >
+        »
       </Button>
     </PaginationWrapper>
   );

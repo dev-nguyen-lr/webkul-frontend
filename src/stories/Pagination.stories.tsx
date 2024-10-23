@@ -12,13 +12,16 @@ const meta: Meta<typeof Pagination> = {
   argTypes: {
     currentPage: {
       control: 'number',
+      description: 'The current active page number',
     },
     totalPages: {
       control: 'number',
+      description: 'Total number of pages available',
     },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
+      description: 'The size of pagination buttons',
     },
   },
   args: {
