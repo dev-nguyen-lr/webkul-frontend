@@ -8,14 +8,13 @@ interface AlertProps {
 
 const AlertWrapper = styled.div<{ type: 'success' | 'error' }>`
   padding: 16px;
-  border-radius: 8px;
   margin-bottom: 16px;
   background-color: ${(props) =>
-    props.type === 'success' ? '#d1e7dd' : '#f8d7da'};
+    props.type === 'success' ? 'rgba(8, 155, 163, .1)' : 'rgba(253, 103, 104, .1)'};
   border: ${(props) =>
-    props.type === 'success' ? '1px solid #0f5132' : '1px solid #842029'};
+    props.type === 'success' ? '1px solid rgba(8, 155, 163)' : '1px solid rgba(253, 103, 104)'};
   color: ${(props) =>
-    props.type === 'success' ? '#0f5132' : '#842029'};
+    props.type === 'success' ? 'rgba(8, 155, 163)' : 'rgba(253, 103, 104)'};
 `;
 
 const StrongText = styled.strong`
