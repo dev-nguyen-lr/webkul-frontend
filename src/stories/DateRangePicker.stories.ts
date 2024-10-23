@@ -1,4 +1,3 @@
-import { action } from '@storybook/addon-actions'; // To track onChange action
 import DateRangePicker from '../components/atoms/date-range-picker'; // Adjust the path as needed
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -19,7 +18,6 @@ const meta: Meta<typeof DateRangePicker> = {
         defaultValue: { summary: 'yyyy/MM/dd' },
       },
     },
-    // You can add other properties here if needed.
   },
   args: {
     dateFormat: 'yyyy/MM/dd', // Default date format
@@ -30,7 +28,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // The default story
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    dateFormat: 'yyyy/MM/dd', // Default format
+  },
+};
 
 // A story with a custom date format
 export const CustomDateFormat: Story = {
