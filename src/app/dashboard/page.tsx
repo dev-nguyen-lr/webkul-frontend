@@ -9,289 +9,96 @@ import CheckBox from '@/components/atoms/checkbox'
 import RadioBox from '@/components/atoms/radiobox'
 import MultiCardRow from '@/components/molecules/multi-card-row'
 import Heading from '@/components/atoms/heading'
+import DataTableHeading from '@/components/molecules/datatable/data-table-heading'
+import Icon from '@/components/atoms/icon'
+
 export default function Home() {
   return (
     <>
       <MultiCardRow>
         <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
+          <Icon>
+            <span
+              className="material-symbols-outlined"
+              style={{ color: '#5da2c6;' }}
+            >
+              point_of_sale
+            </span>
+          </Icon>
+          <div style={{ width: 'calc(100% - 80px);' }}>
+            <Heading size="heading3">
+              <p style={{ color: '#999', lineHeight: '1.4' }}>注文商品数</p>
+            </Heading>
+            <p
+              style={{
+                fontWeight: 'bold',
+                fontSize: '3rem',
+                lineHeight: '1.4',
+              }}
+            >
+              0,000,000<span style={{ fontSize: '1.6rem' }}>点</span>
             </p>
           </div>
         </Card>
+
         <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
+          <Icon>
+            <span
+              className="material-symbols-outlined"
+              style={{ color: '#f0915e;' }}
+            >
+              receipt_long
+            </span>
+          </Icon>
+          <div style={{ width: 'calc(100% - 80px);' }}>
+            <Heading size="heading3">
+              <p style={{ color: '#999', lineHeight: '1.4' }}>注文数</p>
+            </Heading>
+            <p
+              style={{
+                fontWeight: 'bold',
+                fontSize: '3rem',
+                lineHeight: '1.4',
+              }}
+            >
+              0,000<span style={{ fontSize: '1.6rem' }}>件</span>
             </p>
           </div>
         </Card>
+
         <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
+          <Icon>
+            <span
+              className="material-symbols-outlined"
+              style={{ color: '#6e39d9;' }}
+            >
+              health_and_beauty
+            </span>
+          </Icon>
+          <div style={{ width: 'calc(100% - 80px);' }}>
+            <Heading size="heading3">
+              <p style={{ color: '#999', lineHeight: '1.4' }}>注文商品数</p>
+            </Heading>
+            <p
+              style={{
+                fontWeight: 'bold',
+                fontSize: '3rem',
+                lineHeight: '1.4',
+              }}
+            >
+              0,000,000<span style={{ fontSize: '1.6rem' }}>点</span>
             </p>
           </div>
         </Card>
       </MultiCardRow>
-      <MultiCardRow>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
+      <Row>
+        <Card size={12} type="box">
+          <DataTableHeading size="heading2" link="/order">
+            注文一覧
+          </DataTableHeading>
+          {/* <DataTable columns={columns} data={orders} /> */}
         </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
-      <MultiCardRow>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
-      <MultiCardRow>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
-      <MultiCardRow>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
-      <MultiCardRow>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
-      <MultiCardRow>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
-      <MultiCardRow>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-        <Card size={4} type="tile">
-          <i>
-            <span className="material-symbols-outlined">health_and_beauty</span>
-          </i>
-          <div className="inner">
-            <Heading size="heading3">注文商品数</Heading>
-            <p>
-              0,000,000<span>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
+      </Row>
       <Row>
         <UploadBox />
       </Row>

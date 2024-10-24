@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Heading from '../atoms/heading'
 import Row from '../atoms/row'
 import Col from '../atoms/col'
+import Button from '../atoms/button'
 import Header from './header'
 import BreadCrumb from './breadcrumb'
 import SideBar from './sidebar'
@@ -45,11 +46,12 @@ const Main = styled.main<{ closed: boolean }>`
   align-items: flex-start;
   justify-content: flex-start;
   margin-left: 260px;
-  width: calc(100% - 260px);
-  min-height: calc(100vh - 115px); /*100vh - 65px - 50px*/
+  ${({ closed }) => closed && 'width: 100%;'}
+  ${({ closed }) => !closed && 'width: calc(100% - 260px);'}
+  min-height: calc(100vh - 115px);
   background: #f5f5f5;
   transition: 0.3s ease-in-out;
-  position: relative;
+  position: relatvisualive;
   z-index: 1;
 
   ${({ closed }) => closed && 'margin-left: 0;'}
@@ -90,6 +92,13 @@ const Main = styled.main<{ closed: boolean }>`
     }
   }
 `
+const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+`
 const HeaderAndSidebar: React.FC<PropsWithChildren> = ({ children }) => {
   const [closed, setClosed] = React.useState(false)
 
@@ -103,8 +112,25 @@ const HeaderAndSidebar: React.FC<PropsWithChildren> = ({ children }) => {
       <SideBar closed={closed} />
       <Main closed={closed}>
         <PageTitleRow>
-          <Col>
+          <Col size={8}>
             <Heading size="heading1">ダッシュボード</Heading>
+          </Col>
+          <Col size={4} style={{ justifyContent: 'flex-end' }}>
+            <SearchContainer>
+              <input
+                type="text"
+                style={{
+                  margin: ' 0 5px 0 0',
+                  width: 'calc(100% - 63px)',
+                  maxWidth: '250px',
+                }}
+              />
+              <Button
+                primary={false}
+                label="検索"
+                style={{ minWidth: 'auto' }}
+              />
+            </SearchContainer>
           </Col>
         </PageTitleRow>
         {children}
