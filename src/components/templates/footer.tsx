@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 const StyledFooter = styled.footer`
-  margin-left: 260px;
-  width: calc(100% - 260px);
+  width: 100%;
   background: #292929;
   display: flex;
   flex-wrap: wrap;
