@@ -3,11 +3,9 @@
 import React from 'react'
 
 import { Column } from 'react-table'
+import Link from 'next/link'
 import Row from '@/components/atoms/row'
-import UploadBox from '@/components/atoms/upload-box'
 import Card from '@/components/molecules/card'
-import CheckBox from '@/components/atoms/checkbox'
-import RadioBox from '@/components/atoms/radiobox'
 import MultiCardRow from '@/components/molecules/multi-card-row'
 import Heading from '@/components/atoms/heading'
 import DataTableHeading from '@/components/molecules/datatable/data-table-heading'
@@ -21,11 +19,14 @@ interface DataRow {
   firstName: string
   lastName: string
   date: string
+  shippingFee: number
+  count: number
+  price: number
 }
 const columns: Column<DataRow>[] = [
   {
     Header: <a>ステータス</a>,
-    accessor: 'status', // This must match the key in DataRow
+    accessor: 'status',
     Cell: ({ value }) => {
       return <Badge>{value}</Badge>
     },
@@ -33,20 +34,39 @@ const columns: Column<DataRow>[] = [
     maxWidth: 100,
   },
   {
-    Header: <a>ステータス</a>,
-    accessor: 'code', // This must match the key in DataRow
-    Cell: ({ value }) => {
-      return <Badge>{value}</Badge>
+    Header: <a>BS注文コード</a>,
+    accessor: 'code',
+  },
+  {
+    Header: <a>注文者</a>,
+    accessor: 'price',
+    width: '300px',
+    maxWidth: 300,
+    Cell: (row) => {
+      return (
+        <div style={{ textAlign: 'left', width: '300px' }}>
+          <Link href="/order/view">
+            {row.row.original.firstName} {row.row.original.lastName}
+          </Link>
+          <div>
+            <span style={{ display: 'inline-block', marginRight: '15px' }}>
+              送料：¥{row.row.original.shippingFee}
+            </span>
+            <span style={{ display: 'inline-block', marginRight: '15px' }}>
+              支払い金額：¥{row.row.original.price}
+            </span>
+            <span style={{ display: 'inline-block' }}>
+              数量：{row.row.original.count}
+            </span>
+          </div>
+        </div>
+      )
     },
   },
-  // {
-  //   Header: 'Name',
-  //   accessor: 'name', // This must match the key in DataRow
-  // },
-  // {
-  //   Header: 'Age',
-  //   accessor: 'age', // This must match the key in DataRow
-  // },
+  {
+    Header: <a>注文日</a>,
+    accessor: 'date',
+  },
 ]
 
 // Sample data
@@ -57,6 +77,79 @@ const data: DataRow[] = [
     lastName: '名前',
     code: '0000000000',
     date: '2024/01/20',
+    shippingFee: 210,
+    count: 2,
+    price: 188110,
+  },
+  {
+    status: 'ステータス',
+    firstName: '名字',
+    lastName: '名前',
+    code: '0000000000',
+    date: '2024/01/20',
+    shippingFee: 210,
+    count: 2,
+    price: 188110,
+  },
+  {
+    status: 'ステータス',
+    firstName: '名字',
+    lastName: '名前',
+    code: '0000000000',
+    date: '2024/01/20',
+    shippingFee: 210,
+    count: 2,
+    price: 188110,
+  },
+  {
+    status: 'ステータス',
+    firstName: '名字',
+    lastName: '名前',
+    code: '0000000000',
+    date: '2024/01/20',
+    shippingFee: 210,
+    count: 2,
+    price: 188110,
+  },
+  {
+    status: 'ステータス',
+    firstName: '名字',
+    lastName: '名前',
+    code: '0000000000',
+    date: '2024/01/20',
+    shippingFee: 210,
+    count: 2,
+    price: 188110,
+  },
+  {
+    status: 'ステータス',
+    firstName: '名字',
+    lastName: '名前',
+    code: '0000000000',
+    date: '2024/01/20',
+    shippingFee: 210,
+    count: 2,
+    price: 188110,
+  },
+  {
+    status: 'ステータス',
+    firstName: '名字',
+    lastName: '名前',
+    code: '0000000000',
+    date: '2024/01/20',
+    shippingFee: 210,
+    count: 2,
+    price: 188110,
+  },
+  {
+    status: 'ステータス',
+    firstName: '名字',
+    lastName: '名前',
+    code: '0000000000',
+    date: '2024/01/20',
+    shippingFee: 210,
+    count: 2,
+    price: 188110,
   },
 ]
 
@@ -146,16 +239,6 @@ export default function Home() {
           </DataTableHeading>
           <DataTable columns={columns} data={data} />
         </Card>
-      </Row>
-      <Row>
-        <UploadBox />
-      </Row>
-      <Row>
-        <CheckBox id="checkbox" name="checkbox" label="checkbox" />
-      </Row>
-      <Row>
-        <RadioBox id="radiobox1" name="radiobox1" label="radiobox1" />
-        <RadioBox id="radiobox2" name="radiobox1" label="radiobox2" />
       </Row>
     </>
   )
