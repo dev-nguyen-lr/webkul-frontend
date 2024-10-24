@@ -1,6 +1,6 @@
-import { action } from '@storybook/addon-actions'; // To track onChange action
-import SelectBox from '../components/atoms/selectbox'; // Adjust the import path based on your structure
-import type { Meta, StoryObj } from '@storybook/react';
+import { action } from '@storybook/addon-actions' // To track onChange action
+import SelectBox from '../components/atoms/selectbox' // Adjust the import path based on your structure
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof SelectBox> = {
   title: 'Component/SelectBox',
@@ -27,10 +27,10 @@ const meta: Meta<typeof SelectBox> = {
     onChange: action('changed'), // Using the action addon to track changes
     disabled: false, // Default disabled state
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
@@ -38,7 +38,7 @@ export const Default: Story = {
     selectedValue: '',
     disabled: false, // Not disabled by default
   },
-};
+}
 
 export const PreSelected: Story = {
   args: {
@@ -46,7 +46,7 @@ export const PreSelected: Story = {
     selectedValue: 'option2', // Pre-selected value
     disabled: false,
   },
-};
+}
 
 export const Disabled: Story = {
   args: {
@@ -54,4 +54,4 @@ export const Disabled: Story = {
     selectedValue: '',
     disabled: true, // Disabled state
   },
-};
+}

@@ -65,17 +65,15 @@ interface HeadingProps {
   link?: string
 }
 
-const DataTableHeading: React.FC<HeadingProps> = ({
-  size,
-  children,
-  link = '#',
-}) => {
+const DataTableHeading: React.FC<HeadingProps> = ({ size, children, link }) => {
   return (
     <StyledHeading size={size}>
       {children}{' '}
-      <DetailedLink href={link} title="もっと見る">
-        <span className="material-symbols-outlined">apps</span>
-      </DetailedLink>
+      {link && (
+        <DetailedLink href={link} title="もっと見る">
+          <span className="material-symbols-outlined">apps</span>
+        </DetailedLink>
+      )}
     </StyledHeading>
   )
 }

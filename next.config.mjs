@@ -4,6 +4,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ['beauty-scandal.jp'],
+  },
 }
 
 export default nextConfig

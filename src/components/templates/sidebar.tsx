@@ -10,14 +10,19 @@ export interface MenuItem {
 }
 const items: MenuItem[] = [
   {
+    title: 'ダッシュボード',
+    icon: 'space_dashboard',
+    link: '/dashboard/',
+  },
+  {
     title: '注文一覧',
     icon: 'receipt_long',
-    link: '/order/',
+    link: '/dashboard/order/',
   },
   {
     title: '企業一覧',
     icon: 'apartment',
-    link: '/company/',
+    link: '/dashboard/company/',
     subItems: [
       {
         title: '株式会社BeautyScandal',

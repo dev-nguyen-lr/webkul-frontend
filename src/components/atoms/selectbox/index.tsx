@@ -1,17 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 interface Option {
-  label: string;
-  value: string;
+  label: string
+  value: string
 }
 
 interface SelectBoxProps {
-  options: Option[];
-  placeholder?: string;
-  selectedValue: string;
-  onChange: (value: string) => void;
-  disabled?: boolean; // New prop to handle disabled state
+  options: Option[]
+  placeholder?: string
+  selectedValue: string
+  onChange: (_value: string) => void
+  disabled?: boolean // New prop to handle disabled state
 }
 
 // Styled Components
@@ -19,20 +19,23 @@ const SelectBoxWrapper = styled.div`
   position: relative;
   display: inline-block;
   width: 100%;
-`;
+`
 
 const StyledSelect = styled.select<{ disabled: boolean }>`
   display: block;
   width: 100%;
-  background-color: ${({ disabled }) => (disabled ? '#f3f4f6' : 'white')}; /* Change color if disabled */
+  background-color: ${({ disabled }) =>
+    disabled ? '#f3f4f6' : 'white'}; /* Change color if disabled */
   border: 1px solid ${({ disabled }) => (disabled ? '#d1d5db' : '#d1d5db')};
-  color: ${({ disabled }) => (disabled ? '#9ca3af' : '#4b5563')}; /* Change text color if disabled */
+  color: ${({ disabled }) =>
+    disabled ? '#9ca3af' : '#4b5563'}; /* Change text color if disabled */
   padding: 8px 40px 8px 16px; /* Adjust padding for more spacing */
   border-radius: 4px;
   appearance: none;
   line-height: 1.5;
   font-size: 16px;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')}; /* Change cursor if disabled */
+  cursor: ${({ disabled }) =>
+    disabled ? 'not-allowed' : 'pointer'}; /* Change cursor if disabled */
   height: 45px; /* Adjust height to fit the design */
 
   &:focus {
@@ -43,7 +46,7 @@ const StyledSelect = styled.select<{ disabled: boolean }>`
   &:hover {
     border-color: ${({ disabled }) => (disabled ? '#d1d5db' : '#007ebe')};
   }
-`;
+`
 
 const IconWrapper = styled.div`
   pointer-events: none;
@@ -59,7 +62,7 @@ const IconWrapper = styled.div`
     width: 16px;
     height: 16px;
   }
-`;
+`
 
 const SelectBox: React.FC<SelectBoxProps> = ({
   options,
@@ -93,7 +96,7 @@ const SelectBox: React.FC<SelectBoxProps> = ({
         </svg>
       </IconWrapper>
     </SelectBoxWrapper>
-  );
-};
+  )
+}
 
-export default SelectBox;
+export default SelectBox

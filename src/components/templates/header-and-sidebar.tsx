@@ -51,7 +51,7 @@ const Main = styled.main<{ $closed: boolean }>`
   min-height: calc(100vh - 115px);
   background: #f5f5f5;
   transition: 0.3s ease-in-out;
-  position: relatvisualive;
+  position: relative;
   z-index: 1;
 
   ${({ $closed }) => $closed && 'margin-left: 0;'}
