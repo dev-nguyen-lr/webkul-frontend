@@ -49,8 +49,9 @@ const StyledRadio = styled.input`
 `
 
 const Label = styled.label`
-  margin-left: 8px;
-  color: #1f2937;
+  display: inline-block;
+  padding: 6px 15px 6px 5px;
+  cursor: pointer;
 `
 
 const RadioBox: React.FC<RadioBoxProps> = ({

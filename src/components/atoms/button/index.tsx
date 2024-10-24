@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-interface ButtonProps {
+interface ButtonProps extends React.HTMLAttributes<HTMLInputElement> {
   id?: string
   label?: string
   primary?: boolean
-  // eslint-disable-next-line no-unused-vars
-  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void
+  onClick?: (_event: React.MouseEvent<HTMLInputElement>) => void
 }
 
 const PrimaryButton = styled.input`
@@ -55,11 +54,24 @@ const Button: React.FC<ButtonProps> = ({
   label,
   onClick,
   primary = true,
+  ...props
 }) => {
   return primary ? (
-    <PrimaryButton id={id} value={label} type="button" onClick={onClick} />
+    <PrimaryButton
+      id={id}
+      value={label}
+      type="button"
+      onClick={onClick}
+      {...props}
+    />
   ) : (
-    <SecondaryButton id={id} value={label} type="button" onClick={onClick} />
+    <SecondaryButton
+      id={id}
+      value={label}
+      type="button"
+      onClick={onClick}
+      {...props}
+    />
   )
 }
 
