@@ -2,6 +2,7 @@
 
 import React from 'react'
 
+import { Column } from 'react-table'
 import Row from '@/components/atoms/row'
 import UploadBox from '@/components/atoms/upload-box'
 import Card from '@/components/molecules/card'
@@ -11,6 +12,53 @@ import MultiCardRow from '@/components/molecules/multi-card-row'
 import Heading from '@/components/atoms/heading'
 import DataTableHeading from '@/components/molecules/datatable/data-table-heading'
 import Icon from '@/components/atoms/icon'
+import DataTable from '@/components/molecules/datatable'
+import Badge from '@/components/atoms/badge'
+
+interface DataRow {
+  status: string
+  code: string
+  firstName: string
+  lastName: string
+  date: string
+}
+const columns: Column<DataRow>[] = [
+  {
+    Header: <a>ステータス</a>,
+    accessor: 'status', // This must match the key in DataRow
+    Cell: ({ value }) => {
+      return <Badge>{value}</Badge>
+    },
+    width: '100px',
+    maxWidth: 100,
+  },
+  {
+    Header: <a>ステータス</a>,
+    accessor: 'code', // This must match the key in DataRow
+    Cell: ({ value }) => {
+      return <Badge>{value}</Badge>
+    },
+  },
+  // {
+  //   Header: 'Name',
+  //   accessor: 'name', // This must match the key in DataRow
+  // },
+  // {
+  //   Header: 'Age',
+  //   accessor: 'age', // This must match the key in DataRow
+  // },
+]
+
+// Sample data
+const data: DataRow[] = [
+  {
+    status: 'ステータス',
+    firstName: '名字',
+    lastName: '名前',
+    code: '0000000000',
+    date: '2024/01/20',
+  },
+]
 
 export default function Home() {
   return (
@@ -96,7 +144,7 @@ export default function Home() {
           <DataTableHeading size="heading2" link="/order">
             注文一覧
           </DataTableHeading>
-          {/* <DataTable columns={columns} data={orders} /> */}
+          <DataTable columns={columns} data={data} />
         </Card>
       </Row>
       <Row>

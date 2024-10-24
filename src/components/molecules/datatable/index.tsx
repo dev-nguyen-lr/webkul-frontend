@@ -1,116 +1,113 @@
-'use client'
-
-import { useState } from 'react'
+import React from 'react'
 import {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
-  flexRender,
-  getCoreRowModel,
-  getFacetedRowModel,
-  getFacetedUniqueValues,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
-} from '@tanstack/react-table'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableRow,
-} from '@/components/atoms/table'
+  useTable,
+  Column,
+  TableInstance,
+  HeaderGroup,
+  Row,
+  Cell,
+} from 'react-table'
+import styled from 'styled-components'
 
-// import {
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableHead,
-//   TableHeader,
-//   TableRow,
-// } from '@/components/ui/table'
-// import { DataTablePagination } from './data-table-pagination'
+// Styled Components
+const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+`
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
+const Th = styled.th`
+  padding: 15px 10px;
+  white-space: nowrap;
+  vertical-align: top;
+  text-align: center;
+  position: relative;
+  display: table-cell !important;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 70%;
+    background: #eee;
+    position: absolute;
+    top: 15%;
+    right: 0;
+  }
+`
+
+const Td = styled.td`
+  padding: 10px 10px;
+  vertical-align: top;
+  text-align: center;
+  position: relative;
+  display: table-cell !important;
+  &:after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 70%;
+    background: #eee;
+    position: absolute;
+    top: 15%;
+    right: 0;
+  }
+`
+
+const Tr = styled.tr`
+  border-bottom: 1px solid #eee;
+  transition: 0.2s;
+`
+
+// Define the row type
+
+// Define the props interface
+interface DataTableProps<T extends object> {
+  columns: Column<T>[]
+  data: T[]
 }
 
-export function DataTable<TData, TValue>({
-  columns,
-  data,
-}: DataTableProps<TData, TValue>) {
-  const [rowSelection, setRowSelection] = useState({})
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
-  const [sorting, setSorting] = useState<SortingState>([])
-
-  const table = useReactTable({
-    data,
+const DataTable = <T extends object>({ columns, data }: DataTableProps<T>) => {
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  }: TableInstance<T> = useTable({
     columns,
-    state: {
-      sorting,
-      columnVisibility,
-      rowSelection,
-      columnFilters,
-    },
-    enableRowSelection: true,
-    onRowSelectionChange: setRowSelection,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    onColumnVisibilityChange: setColumnVisibility,
-    getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFacetedRowModel: getFacetedRowModel(),
-    getFacetedUniqueValues: getFacetedUniqueValues(),
+    data,
   })
 
   return (
-    <div>
-      <Table>
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableCell key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableCell>
-                )
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                data-state={row.getIsSelected() && 'selected'}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell>結果はありません。</TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </div>
+    <Table {...getTableProps()}>
+      <thead>
+        {headerGroups.map((headerGroup: HeaderGroup<T>, index: number) => (
+          <Tr {...headerGroup.getHeaderGroupProps()} key={index}>
+            {headerGroup.headers.map((column, colIndex) => (
+              <Th {...column.getHeaderProps()} key={colIndex}>
+                {column.render('Header')}
+              </Th>
+            ))}
+          </Tr>
+        ))}
+      </thead>
+      <tbody {...getTableBodyProps()}>
+        {rows.map((row: Row<T>, rowIndex: number) => {
+          prepareRow(row)
+          return (
+            <Tr {...row.getRowProps()} key={rowIndex}>
+              {row.cells.map((cell: Cell<T>, cellIndex: number) => (
+                <Td {...cell.getCellProps()} key={cellIndex}>
+                  {cell.render('Cell')}
+                </Td>
+              ))}
+            </Tr>
+          )
+        })}
+      </tbody>
+    </Table>
   )
 }
+
+export default DataTable
