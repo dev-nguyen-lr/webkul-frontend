@@ -6,10 +6,7 @@ import { Column } from 'react-table'
 import Link from 'next/link'
 import Row from '@/components/atoms/row'
 import Card from '@/components/molecules/card'
-import MultiCardRow from '@/components/molecules/multi-card-row'
-import Heading from '@/components/atoms/heading'
 import DataTableHeading from '@/components/molecules/datatable/data-table-heading'
-import Icon from '@/components/atoms/icon'
 import DataTable from '@/components/molecules/datatable'
 import Badge from '@/components/atoms/badge'
 import Pagination from '@/components/atoms/pagination'
@@ -157,87 +154,9 @@ const data: DataRow[] = [
 export default function Home() {
   return (
     <>
-      <MultiCardRow>
-        <Card size={4} type="tile">
-          <Icon>
-            <span
-              className="material-symbols-outlined"
-              style={{ color: '#5da2c6;' }}
-            >
-              point_of_sale
-            </span>
-          </Icon>
-          <div style={{ width: 'calc(100% - 80px);' }}>
-            <Heading size="heading3">
-              <p style={{ color: '#999', lineHeight: '1.4' }}>注文商品数</p>
-            </Heading>
-            <p
-              style={{
-                fontWeight: 'bold',
-                fontSize: '3rem',
-                lineHeight: '1.4',
-              }}
-            >
-              0,000,000<span style={{ fontSize: '1.6rem' }}>点</span>
-            </p>
-          </div>
-        </Card>
-
-        <Card size={4} type="tile">
-          <Icon>
-            <span
-              className="material-symbols-outlined"
-              style={{ color: '#f0915e;' }}
-            >
-              receipt_long
-            </span>
-          </Icon>
-          <div style={{ width: 'calc(100% - 80px);' }}>
-            <Heading size="heading3">
-              <p style={{ color: '#999', lineHeight: '1.4' }}>注文数</p>
-            </Heading>
-            <p
-              style={{
-                fontWeight: 'bold',
-                fontSize: '3rem',
-                lineHeight: '1.4',
-              }}
-            >
-              0,000<span style={{ fontSize: '1.6rem' }}>件</span>
-            </p>
-          </div>
-        </Card>
-
-        <Card size={4} type="tile">
-          <Icon>
-            <span
-              className="material-symbols-outlined"
-              style={{ color: '#6e39d9;' }}
-            >
-              health_and_beauty
-            </span>
-          </Icon>
-          <div style={{ width: 'calc(100% - 80px);' }}>
-            <Heading size="heading3">
-              <p style={{ color: '#999', lineHeight: '1.4' }}>注文商品数</p>
-            </Heading>
-            <p
-              style={{
-                fontWeight: 'bold',
-                fontSize: '3rem',
-                lineHeight: '1.4',
-              }}
-            >
-              0,000,000<span style={{ fontSize: '1.6rem' }}>点</span>
-            </p>
-          </div>
-        </Card>
-      </MultiCardRow>
       <Row>
         <Card size={12} type="box">
-          <DataTableHeading size="heading2" link="/dashboard/order">
-            注文一覧
-          </DataTableHeading>
+          <DataTableHeading size="heading2">注文一覧</DataTableHeading>
           <DataTable columns={columns} data={data} />
           <div style={{ width: '100%', padding: '15px' }}>
             <div

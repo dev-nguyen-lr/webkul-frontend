@@ -1,6 +1,6 @@
-import { action } from '@storybook/addon-actions'; // To track onClick action
-import CustomButton from '../components/atoms/custom-button'; // Adjust the path to your CustomButton component
-import type { Meta, StoryObj } from '@storybook/react';
+import { action } from '@storybook/addon-actions' // To track onClick action
+import CustomButton from '../components/atoms/custom-button' // Adjust the path to your CustomButton component
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof CustomButton> = {
   title: 'Component/CustomButton',
@@ -30,15 +30,15 @@ const meta: Meta<typeof CustomButton> = {
     children: 'Button', // Default button label
     onClick: action('clicked'), // Track the onClick action
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 // Default story with default args
 export const Default: Story = {
   args: {},
-};
+}
 
 // Story for the primary button
 export const Primary: Story = {
@@ -46,7 +46,7 @@ export const Primary: Story = {
     variant: 'primary',
     children: 'Primary Button',
   },
-};
+}
 
 // Story for the outline button
 export const Outline: Story = {
@@ -54,7 +54,7 @@ export const Outline: Story = {
     variant: 'outline',
     children: 'Outline Button',
   },
-};
+}
 
 // Story for the danger button
 export const Danger: Story = {
@@ -62,7 +62,7 @@ export const Danger: Story = {
     variant: 'danger',
     children: 'Danger Button',
   },
-};
+}
 
 // Story for the secondary button
 export const Secondary: Story = {
@@ -70,7 +70,7 @@ export const Secondary: Story = {
     variant: 'secondary',
     children: 'Secondary Button',
   },
-};
+}
 
 // Story for the text button
 export const Text: Story = {
@@ -78,4 +78,4 @@ export const Text: Story = {
     variant: 'text',
     children: 'Text Button',
   },
-};
+}

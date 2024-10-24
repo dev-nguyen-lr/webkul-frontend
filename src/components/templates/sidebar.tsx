@@ -10,14 +10,19 @@ export interface MenuItem {
 }
 const items: MenuItem[] = [
   {
+    title: 'ダッシュボード',
+    icon: 'space_dashboard',
+    link: '/dashboard/',
+  },
+  {
     title: '注文一覧',
     icon: 'receipt_long',
-    link: '/order/',
+    link: '/dashboard/order/',
   },
   {
     title: '企業一覧',
     icon: 'apartment',
-    link: '/company/',
+    link: '/dashboard/company/',
     subItems: [
       {
         title: '株式会社BeautyScandal',
@@ -45,7 +50,7 @@ const items: MenuItem[] = [
     ],
   },
 ]
-const SidebarContainer = styled.aside<{ closed: boolean }>`
+const SidebarContainer = styled.aside<{ $closed: boolean }>`
   position: fixed;
   top: 65px;
   left: 0;
@@ -60,7 +65,7 @@ const SidebarContainer = styled.aside<{ closed: boolean }>`
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 
-  ${({ closed }) => closed && 'left: -260px;'}
+  ${({ $closed }) => $closed && 'left: -260px;'}
 
   @media screen and (max-width: 768px) {
     top: 55px;
@@ -82,7 +87,7 @@ const List = styled.ul`
   margin-bottom: 10px;
 `
 
-const ListItem = styled.li<{ isactive: boolean }>`
+const ListItem = styled.li<{ $isactive: boolean }>`
   position: relative;
   display: block;
 
@@ -92,9 +97,9 @@ const ListItem = styled.li<{ isactive: boolean }>`
     justify-content: flex-start;
     padding: 15px 20px;
     font-weight: bold;
-    color: ${({ isactive }) => (isactive ? '#fff' : '#ccc')};
-    background: ${({ isactive }) =>
-      isactive ? 'rgba(255, 255, 255, 0.03)' : 'none'};
+    color: ${({ $isactive }) => ($isactive ? '#fff' : '#ccc')};
+    background: ${({ $isactive }) =>
+      $isactive ? 'rgba(255, 255, 255, 0.03)' : 'none'};
     transition: 0.2s;
 
     &:hover {
@@ -119,7 +124,7 @@ const ListItem = styled.li<{ isactive: boolean }>`
   }
 
   > a i:before {
-    content: ${({ isactive }) => (isactive ? '-' : '+')};
+    content: ${({ $isactive }) => ($isactive ? '-' : '+')};
   }
 `
 
@@ -141,11 +146,11 @@ const SideBar: React.FC<SideBarProps> = ({ closed = false }) => {
   }
 
   return (
-    <SidebarContainer closed={closed}>
+    <SidebarContainer $closed={closed}>
       <Nav>
         <List>
           {items.map((item, index) => (
-            <ListItem key={index} isactive={activeIndex === `${index}`}>
+            <ListItem key={index} $isactive={activeIndex === `${index}`}>
               <a href={item.link}>
                 <span className="material-symbols-outlined">{item.icon}</span>
                 {item.title}
@@ -156,7 +161,7 @@ const SideBar: React.FC<SideBarProps> = ({ closed = false }) => {
               {activeIndex === `${index}` && item.subItems && (
                 <SubList>
                   {item.subItems.map((subItem, subIndex) => (
-                    <ListItem key={subIndex} isactive={false}>
+                    <ListItem key={subIndex} $isactive={false}>
                       <a href={subItem.link}>
                         {subItem.title}
                         {subItem.subItems && (
@@ -166,7 +171,7 @@ const SideBar: React.FC<SideBarProps> = ({ closed = false }) => {
                       {subItem.subItems && (
                         <SubList>
                           {subItem.subItems.map((subSubItem, subSubIndex) => (
-                            <ListItem key={subSubIndex} isactive={false}>
+                            <ListItem key={subSubIndex} $isactive={false}>
                               <a href={subSubItem.link}>{subSubItem.title}</a>
                             </ListItem>
                           ))}

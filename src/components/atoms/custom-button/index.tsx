@@ -1,14 +1,14 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React from 'react'
+import styled, { css } from 'styled-components'
 
 interface CustomButtonProps {
-  variant?: 'primary' | 'outline' | 'danger' | 'secondary' | 'text'; // Button variants
-  size?: 'small' | 'medium' | 'large'; // Optional: Button sizes
-  disabled?: boolean;
-  onClick?: () => void;
-  children: React.ReactNode;
-  className?: string; // Additional classes for styling
-  type?: 'button' | 'submit' | 'reset'; // Adding type for button types
+  variant?: 'primary' | 'outline' | 'danger' | 'secondary' | 'text' // Button variants
+  size?: 'small' | 'medium' | 'large' // Optional: Button sizes
+  disabled?: boolean
+  onClick?: () => void
+  children: React.ReactNode
+  className?: string // Additional classes for styling
+  type?: 'button' | 'submit' | 'reset' // Adding type for button types
 }
 
 // Define sizes for the button
@@ -28,7 +28,7 @@ const buttonSizes = {
     padding: 12px 20px;
     min-width: 140px;
   `,
-};
+}
 
 // Define variants for the button
 const buttonVariants = {
@@ -84,19 +84,22 @@ const buttonVariants = {
       box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
     }
   `,
-};
+}
 
 // Styled Button component
 const StyledButton = styled.button<{
-  variant: 'primary' | 'outline' | 'danger' | 'secondary' | 'text';
-  size: 'small' | 'medium' | 'large';
-  disabled: boolean;
+  variant: 'primary' | 'outline' | 'danger' | 'secondary' | 'text'
+  size: 'small' | 'medium' | 'large'
+  disabled: boolean
 }>`
   font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
   border: none;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
   ${(props) => buttonSizes[props.size]}
   ${(props) => buttonVariants[props.variant]}
   ${(props) =>
@@ -105,7 +108,7 @@ const StyledButton = styled.button<{
       opacity: 0.5;
       cursor: not-allowed;
     `}
-`;
+`
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   variant = 'primary', // Default variant
@@ -127,7 +130,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     >
       {children}
     </StyledButton>
-  );
-};
+  )
+}
 
-export default CustomButton;
+export default CustomButton

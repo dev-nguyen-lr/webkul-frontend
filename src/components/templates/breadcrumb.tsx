@@ -96,8 +96,8 @@ interface BreadCrumbItem {
 }
 
 const items: BreadCrumbItem[] = [
-  { link: '/admin/', label: 'ダッシュボード' },
-  { link: '/order/', label: '注文一覧' },
+  { link: '/dashboard/', label: 'ダッシュボード' },
+  { link: '/dashboard/order', label: '注文一覧' },
 ]
 const Breadcrumb = () => (
   <Pan>

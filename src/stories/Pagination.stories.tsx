@@ -1,6 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
-import Pagination from '../components/atoms/pagination'; // Adjust the path
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
+import Pagination from '../components/atoms/pagination' // Adjust the path
 
 const meta: Meta<typeof Pagination> = {
   title: 'Component/Pagination',
@@ -29,22 +30,22 @@ const meta: Meta<typeof Pagination> = {
     totalPages: 10,
     size: 'medium',
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 // Helper component to wrap Pagination and manage its state locally
 const PaginationWrapper: React.FC<any> = (args) => {
-  const [currentPage, setCurrentPage] = useState(args.currentPage);
+  const [currentPage, setCurrentPage] = useState(args.currentPage)
   return (
     <Pagination
       {...args}
       currentPage={currentPage}
       onPageChange={(page) => setCurrentPage(page)}
     />
-  );
-};
+  )
+}
 
 // Default Pagination story
 export const Default: Story = {
@@ -54,7 +55,7 @@ export const Default: Story = {
     size: 'medium',
   },
   render: (args) => <PaginationWrapper {...args} />,
-};
+}
 
 // Pagination with small size
 export const SmallPagination: Story = {
@@ -64,7 +65,7 @@ export const SmallPagination: Story = {
     size: 'small',
   },
   render: (args) => <PaginationWrapper {...args} />,
-};
+}
 
 // Pagination with large size
 export const LargePagination: Story = {
@@ -74,4 +75,4 @@ export const LargePagination: Story = {
     size: 'large',
   },
   render: (args) => <PaginationWrapper {...args} />,
-};
+}

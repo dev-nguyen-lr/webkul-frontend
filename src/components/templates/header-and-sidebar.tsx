@@ -40,21 +40,21 @@ const MainPage = styled.div`
   width: 100%;
   padding-top: 65px;
 `
-const Main = styled.main<{ closed: boolean }>`
+const Main = styled.main<{ $closed: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   margin-left: 260px;
-  ${({ closed }) => closed && 'width: 100%;'}
-  ${({ closed }) => !closed && 'width: calc(100% - 260px);'}
+  ${({ $closed }) => $closed && 'width: 100%;'}
+  ${({ $closed }) => !$closed && 'width: calc(100% - 260px);'}
   min-height: calc(100vh - 115px);
   background: #f5f5f5;
   transition: 0.3s ease-in-out;
-  position: relatvisualive;
+  position: relative;
   z-index: 1;
 
-  ${({ closed }) => closed && 'margin-left: 0;'}
+  ${({ $closed }) => $closed && 'margin-left: 0;'}
 
   &.sp {
     margin-left: 0;
@@ -110,7 +110,7 @@ const HeaderAndSidebar: React.FC<PropsWithChildren> = ({ children }) => {
         }}
       />
       <SideBar closed={closed} />
-      <Main closed={closed}>
+      <Main $closed={closed}>
         <PageTitleRow>
           <Col size={8}>
             <Heading size="heading1">ダッシュボード</Heading>

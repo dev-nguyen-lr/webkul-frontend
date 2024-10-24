@@ -154,11 +154,13 @@ const Header: React.FC<HeaderProps> = ({ onClose }) => {
       <LogoContainer>
         <a href="/">
           <Image
+            style={{ visibility: 'visible' }}
             src="/images/pro.webp"
-            layout="responsive"
             alt="Beauty Scandal Pro"
             width={100}
             height={100}
+            priority // add this if it's above the fold
+            sizes="100vw" // optional: define sizes if needed
           />
         </a>
       </LogoContainer>
